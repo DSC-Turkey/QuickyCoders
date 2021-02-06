@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:preservingculturalheritage/Models/Users.dart';
-import 'package:preservingculturalheritage/Pages/homePage.dart';
+import 'package:preservingculturalheritage/Pages/NavigationBar.dart';
+//import 'package:preservingculturalheritage/Pages/homePage.dart';
 import 'package:preservingculturalheritage/Pages/login.dart';
 import 'package:preservingculturalheritage/Services/AuthService.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class AuthPage extends StatelessWidget {
         if (snapshot.hasData) {
           Users activeUserId = snapshot.data;
           _authService.activeUserId = activeUserId.id;
-          return HomePage();
+          return NavigationBar();
         } else {
           return LoginPage();
         }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:preservingculturalheritage/Services/AuthService.dart';
-import 'package:provider/provider.dart';
+import 'package:preservingculturalheritage/Pages/uploadPage.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,15 +11,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(icon: Icon(Icons.exit_to_app), onPressed: _signOut)
-        ],
+        actions: [],
       ),
       body: Text("data"),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue,
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => UploadPage()));
+        },
+      ),
     );
-  }
-
-  void _signOut() {
-    Provider.of<AuthService>(context, listen: false).logOut();
   }
 }
