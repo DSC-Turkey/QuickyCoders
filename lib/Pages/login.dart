@@ -178,7 +178,7 @@ class _LoginPageState extends State<LoginPage>
         style: TextStyle(
             color: Colors.white,
             fontSize: 16.0,
-            fontFamily: "WorkSansSemiBold"),
+            fontFamily: "MontserratMedium"),
       ),
       backgroundColor: Colors.blue,
       duration: Duration(seconds: 3),
@@ -208,7 +208,7 @@ class _LoginPageState extends State<LoginPage>
                   style: TextStyle(
                       color: left,
                       fontSize: 16.0,
-                      fontFamily: "WorkSansSemiBold"),
+                      fontFamily: "MontserratMedium"),
                 ),
               ),
             ),
@@ -223,7 +223,7 @@ class _LoginPageState extends State<LoginPage>
                   style: TextStyle(
                       color: right,
                       fontSize: 16.0,
-                      fontFamily: "WorkSansSemiBold"),
+                      fontFamily: "MontserratMedium"),
                 ),
               ),
             ),
@@ -263,7 +263,7 @@ class _LoginPageState extends State<LoginPage>
                             controller: loginEmailController,
                             keyboardType: TextInputType.emailAddress,
                             style: TextStyle(
-                                fontFamily: "WorkSansSemiBold",
+                                fontFamily: "MontserratMedium",
                                 fontSize: 16.0,
                                 color: Colors.black),
                             decoration: InputDecoration(
@@ -275,7 +275,7 @@ class _LoginPageState extends State<LoginPage>
                               ),
                               hintText: "Email Address",
                               hintStyle: TextStyle(
-                                  fontFamily: "WorkSansSemiBold",
+                                  fontFamily: "MontserratMedium",
                                   fontSize: 17.0),
                             ),
                             validator: EmailFieldValidator.validate,
@@ -295,7 +295,7 @@ class _LoginPageState extends State<LoginPage>
                             controller: loginPasswordController,
                             obscureText: _obscureTextLogin,
                             style: TextStyle(
-                                fontFamily: "WorkSansSemiBold",
+                                fontFamily: "MontserratMedium",
                                 fontSize: 16.0,
                                 color: Colors.black),
                             decoration: InputDecoration(
@@ -307,7 +307,7 @@ class _LoginPageState extends State<LoginPage>
                               ),
                               hintText: "Password",
                               hintStyle: TextStyle(
-                                  fontFamily: "WorkSansSemiBold",
+                                  fontFamily: "MontserratMedium",
                                   fontSize: 17.0),
                               suffixIcon: GestureDetector(
                                 onTap: _toggleLogin,
@@ -366,7 +366,7 @@ class _LoginPageState extends State<LoginPage>
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 25.0,
-                              fontFamily: "WorkSansBold"),
+                              fontFamily: "MontserratMedium"),
                         ),
                       ),
                       onPressed: _loginWithEmailAndPassword),
@@ -383,7 +383,7 @@ class _LoginPageState extends State<LoginPage>
                         decoration: TextDecoration.underline,
                         color: Colors.white,
                         fontSize: 16.0,
-                        fontFamily: "WorkSansMedium"),
+                        fontFamily: "MontserratMedium"),
                   )),
             ),
             Padding(
@@ -413,7 +413,7 @@ class _LoginPageState extends State<LoginPage>
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,
-                          fontFamily: "WorkSansMedium"),
+                          fontFamily: "MontserratMedium"),
                     ),
                   ),
                   Container(
@@ -510,7 +510,7 @@ class _LoginPageState extends State<LoginPage>
                             keyboardType: TextInputType.text,
                             textCapitalization: TextCapitalization.words,
                             style: TextStyle(
-                                fontFamily: "WorkSansSemiBold",
+                                fontFamily: "MontserratMedium",
                                 fontSize: 16.0,
                                 color: Colors.black),
                             decoration: InputDecoration(
@@ -521,7 +521,7 @@ class _LoginPageState extends State<LoginPage>
                               ),
                               hintText: "Name",
                               hintStyle: TextStyle(
-                                  fontFamily: "WorkSansSemiBold",
+                                  fontFamily: "MontserratMedium",
                                   fontSize: 16.0),
                             ),
                             validator: (input) {
@@ -549,7 +549,7 @@ class _LoginPageState extends State<LoginPage>
                             controller: signupEmailController,
                             keyboardType: TextInputType.emailAddress,
                             style: TextStyle(
-                                fontFamily: "WorkSansSemiBold",
+                                fontFamily: "MontserratMedium",
                                 fontSize: 16.0,
                                 color: Colors.black),
                             decoration: InputDecoration(
@@ -560,7 +560,7 @@ class _LoginPageState extends State<LoginPage>
                               ),
                               hintText: "Email Address",
                               hintStyle: TextStyle(
-                                  fontFamily: "WorkSansSemiBold",
+                                  fontFamily: "MontserratMedium",
                                   fontSize: 16.0),
                             ),
                             validator: EmailFieldValidator.validate,
@@ -580,7 +580,7 @@ class _LoginPageState extends State<LoginPage>
                             controller: signupPasswordController,
                             obscureText: _obscureTextSignup,
                             style: TextStyle(
-                                fontFamily: "WorkSansSemiBold",
+                                fontFamily: "MontserratMedium",
                                 fontSize: 16.0,
                                 color: Colors.black),
                             decoration: InputDecoration(
@@ -591,7 +591,7 @@ class _LoginPageState extends State<LoginPage>
                               ),
                               hintText: "Password",
                               hintStyle: TextStyle(
-                                  fontFamily: "WorkSansSemiBold",
+                                  fontFamily: "MontserratMedium",
                                   fontSize: 16.0),
                               suffixIcon: GestureDetector(
                                 onTap: _toggleSignup,
@@ -655,7 +655,7 @@ class _LoginPageState extends State<LoginPage>
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 25.0,
-                              fontFamily: "WorkSansBold"),
+                              fontFamily: "MontserratMedium"),
                         ),
                       ),
                       onPressed: _register),
