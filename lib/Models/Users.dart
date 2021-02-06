@@ -19,7 +19,7 @@ class Users {
     );
   }
 
-  factory Users.dokumandanuret(DocumentSnapshot doc) {
+  factory Users.createDocument(DocumentSnapshot doc) {
     return Users(
       id: doc.id,
       kullaniciAdi: doc.data()['kullaniciAdi'],

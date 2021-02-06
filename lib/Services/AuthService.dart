@@ -2,10 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:preservingculturalheritage/Models/Users.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class Auth {
+class AuthService {
   final FirebaseAuth auth;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  Auth({this.auth});
+  String activeUserId;
+  AuthService({this.auth});
   Stream<User> get user => auth.authStateChanges();
 
   Users _userRegister(User user) {
