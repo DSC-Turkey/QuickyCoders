@@ -17,23 +17,23 @@ class AuthService {
     return _firebaseAuth.authStateChanges().map(_userRegister);
   }
 
-  Future<Users> _userRegisterWithMail(String email, String password) async {
+  Future<Users> userRegisterWithMail(String email, String password) async {
     var registerCard = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
     return _userRegister(registerCard.user);
   }
 
-  Future<Users> _userLoginWithMail(String email, String password) async {
+  Future<Users> userLoginWithMail(String email, String password) async {
     var loginCard = await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: password);
     return _userRegister(loginCard.user);
   }
 
-  Future<void> _logOut() {
+  Future<void> logOut() {
     return _firebaseAuth.signOut();
   }
 
-  Future<Users> _loginWithGoogle() async {
+  Future<Users> loginWithGoogle() async {
     GoogleSignInAccount googleAccount = await GoogleSignIn().signIn();
     GoogleSignInAuthentication googleAuth = await googleAccount.authentication;
     AuthCredential loginWithoutPassword = GoogleAuthProvider.credential(
