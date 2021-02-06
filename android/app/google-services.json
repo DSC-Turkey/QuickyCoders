@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "308253689693",
+    "project_id": "flutterhacthon2021",
+    "storage_bucket": "flutterhacthon2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308253689693:android:624d9bf0201f69575bcab4",
+        "android_client_info": {
+          "package_name": "com.example.preservingculturalheritage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308253689693-e1ekuhm40s9q4l1ktvcha1i9uomlegkt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUuGI5Q47UPERVE6Mvoj0lS9UaF56wJyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308253689693-e1ekuhm40s9q4l1ktvcha1i9uomlegkt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
