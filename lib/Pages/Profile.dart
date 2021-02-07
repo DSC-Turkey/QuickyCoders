@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:preservingculturalheritage/Models/Users.dart';
 import 'package:preservingculturalheritage/Services/FirebaseHist-ArtServices.dart';
@@ -14,6 +13,7 @@ class ProfileApp extends StatefulWidget {
 
 class _ProfileAppState extends State<ProfileApp> {
   Users _user;
+  // ignore: missing_return
   Future<Users> getUser() async {
     Users user = await FirebaseHistArtServices().getUsers(widget.profilOwnerId);
     setState(() {
@@ -23,6 +23,7 @@ class _ProfileAppState extends State<ProfileApp> {
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     getUser();

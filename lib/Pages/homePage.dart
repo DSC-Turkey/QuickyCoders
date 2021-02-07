@@ -1,13 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:preservingculturalheritage/Models/Users.dart';
-import 'package:preservingculturalheritage/Models/historicalArtifacts.dart';
-import 'package:preservingculturalheritage/Pages/Profile.dart';
-import 'package:preservingculturalheritage/Pages/login.dart';
-import 'package:preservingculturalheritage/Services/FirebaseHist-ArtServices.dart';
+
 import 'package:preservingculturalheritage/style/theme.dart' as Theme;
-import 'package:preservingculturalheritage/Pages/data.dart';
+import 'package:preservingculturalheritage/Pages/CategoryData.dart';
 
 import 'blog.dart';
 
@@ -107,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                                       Row(
                                         children: <Widget>[
                                           Text(
-                                            'Know more',
+                                            'Fotoğraflar',
                                             style: TextStyle(
                                               fontFamily: 'MontserratLight',
                                               fontSize: 18,

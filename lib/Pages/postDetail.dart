@@ -16,6 +16,7 @@ class PostDetail extends StatefulWidget {
 }
 
 class _PostDetailState extends State<PostDetail> {
+  int sikayetSayisi = 0;
   @override
   void initState() {
     super.initState();
@@ -25,26 +26,41 @@ class _PostDetailState extends State<PostDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    theme.Colors.gradientStartColor,
+                    theme.Colors.homepage
+                  ],
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
+                  stops: [0.3, 0.7])),
+        ),
+      ),
       body: ListView(
         children: [
-          Center(
-              child: InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ProfileApp(
-                            profilOwnerId: widget.user.id,
-                          )));
-            },
-            child: Text(
-              "Yayınlayan: " + widget.user.userName,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Center(
+                child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProfileApp(
+                              profilOwnerId: widget.user.id,
+                            )));
+              },
+              child: Text(
+                "Yayınlayan: " + widget.user.userName,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-          )),
+            )),
+          ),
           SizedBox(
             height: 380,
             child: Image(
@@ -55,7 +71,11 @@ class _PostDetailState extends State<PostDetail> {
           Center(
             child: Text(
               "Açıklama: " + widget.histArt.description,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: 'MontserratBold',
+                fontSize: 12,
+              ),
             ),
           ),
           Expanded(
@@ -63,7 +83,7 @@ class _PostDetailState extends State<PostDetail> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
-                  height: 130,
+                  height: 100,
                   width: 200,
                   child: RaisedButton(
                     color: theme.Colors.homepage,
@@ -75,23 +95,48 @@ class _PostDetailState extends State<PostDetail> {
                                     post: widget.histArt,
                                   )));
                     },
-                    child: Text("TARTIŞMAYA KATIL"),
+                    child: Text(
+                      "TARTIŞMAYA KATIL",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'MontserratBold',
+                        fontSize: 13,
+                      ),
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 130,
+                  height: 100,
                   width: 200,
                   child: RaisedButton(
-                    color: Color(0xffec4646),
-                    onPressed: () {},
+                    color: theme.Colors.gradientStartColor,
+                    onPressed: () {
+                      setState(() {
+                        sikayetSayisi++;
+                      });
+                    },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("ŞİKAYET ET"),
+                        Text(
+                          "ŞİKAYET ET",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'MontserratBold',
+                            fontSize: 12,
+                          ),
+                        ),
                         SizedBox(
                           height: 5,
                         ),
-                        Text("Şikayet Sayısı:"),
+                        Text(
+                          "Şikayet Sayısı:" + sikayetSayisi.toString(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'MontserratBold',
+                            fontSize: 12,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -103,11 +148,20 @@ class _PostDetailState extends State<PostDetail> {
             height: 25,
           ),
           Center(
-            child: Text("Oluşturma Tarihi:"),
+            child: Text(
+              "Oluşturma Tarihi:",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: 'MontserratBold',
+                fontSize: 13,
+              ),
+            ),
           ),
           Center(
-            child: Text(timeago.format(widget.histArt.createTime.toDate(),
-                locale: "tr")),
+            child: Text(timeago.format(
+              widget.histArt.createTime.toDate(),
+              locale: "tr",
+            )),
           ),
         ],
       ),

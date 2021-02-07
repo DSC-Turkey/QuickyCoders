@@ -8,6 +8,7 @@ import 'package:preservingculturalheritage/Services/FirebaseCommentService.dart'
 import 'package:preservingculturalheritage/Services/FirebaseHist-ArtServices.dart';
 import 'package:provider/provider.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'package:preservingculturalheritage/style/theme.dart' as theme;
 
 class CommentPage extends StatefulWidget {
   final HistoricalArtifacts post;
@@ -32,16 +33,17 @@ class _CommentPageState extends State<CommentPage> {
         toolbarHeight: 50,
         //shadowColor: Colors.grey[400],
         centerTitle: true,
-        backgroundColor: Colors.orange[300],
-        title: Text(
-          "Yorumlar",
-          style: TextStyle(
-            color: Colors.grey[100],
-            fontSize: 22,
-            fontFamily: 'LobsterTwoItalic',
-          ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    theme.Colors.gradientStartColor,
+                    theme.Colors.homepage
+                  ],
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
+                  stops: [0.3, 0.7])),
         ),
-        iconTheme: IconThemeData(color: Colors.grey[100]),
       ),
       body: Column(
         children: <Widget>[

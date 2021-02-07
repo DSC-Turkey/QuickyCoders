@@ -75,6 +75,7 @@ class _LoginPageState extends State<LoginPage>
     return new Scaffold(
       key: _scaffoldKey,
       body: NotificationListener<OverscrollIndicatorNotification>(
+        // ignore: missing_return
         onNotification: (overscroll) {
           overscroll.disallowGlow();
         },
@@ -204,7 +205,7 @@ class _LoginPageState extends State<LoginPage>
                 highlightColor: Colors.transparent,
                 onPressed: _onSignInButtonPress,
                 child: Text(
-                  "Existing",
+                  "Giriş",
                   style: TextStyle(
                       color: left,
                       fontSize: 16.0,
@@ -219,7 +220,7 @@ class _LoginPageState extends State<LoginPage>
                 highlightColor: Colors.transparent,
                 onPressed: _onSignUpButtonPress,
                 child: Text(
-                  "New",
+                  "Yeni",
                   style: TextStyle(
                       color: right,
                       fontSize: 16.0,
@@ -651,7 +652,7 @@ class _LoginPageState extends State<LoginPage>
                         padding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 42.0),
                         child: Text(
-                          "SIGN UP",
+                          "KAYIT OL",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 25.0,
@@ -690,6 +691,7 @@ class _LoginPageState extends State<LoginPage>
     });
   }
 
+  // ignore: unused_element
   void _toggleSignupConfirm() {
     setState(() {
       _obscureTextSignupConfirm = !_obscureTextSignupConfirm;

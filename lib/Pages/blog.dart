@@ -1,11 +1,10 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:preservingculturalheritage/Models/Users.dart';
 import 'package:preservingculturalheritage/Models/historicalArtifacts.dart';
 import 'package:preservingculturalheritage/Pages/postDetail.dart';
 import 'package:preservingculturalheritage/Services/FirebaseHist-ArtServices.dart';
 import 'package:preservingculturalheritage/style/theme.dart' as Theme;
-import 'package:preservingculturalheritage/Pages/data.dart';
+import 'package:preservingculturalheritage/Pages/CategoryData.dart';
 
 class DetailPage extends StatefulWidget {
   final KulturelMirasInfo info;
@@ -17,6 +16,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   @override
+  // ignore: override_on_non_overriding_member
   List<HistoricalArtifacts> _posts = [];
   Future<void> _getPosts() async {
     List<HistoricalArtifacts> posts = await FirebaseHistArtServices()

@@ -63,7 +63,7 @@ class _UploadPageState extends State<UploadPage> {
           IconButton(
               icon: Icon(
                 Icons.send,
-                color: Colors.grey[400],
+                color: Colors.black,
               ),
               onPressed: _createPost),
         ],
