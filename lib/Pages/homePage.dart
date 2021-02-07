@@ -1,7 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:preservingculturalheritage/Models/Users.dart';
 import 'package:preservingculturalheritage/Models/historicalArtifacts.dart';
-import 'package:preservingculturalheritage/Pages/uploadPage.dart';
+import 'package:preservingculturalheritage/Pages/Profile.dart';
+import 'package:preservingculturalheritage/Pages/login.dart';
 import 'package:preservingculturalheritage/Services/FirebaseHist-ArtServices.dart';
+import 'package:preservingculturalheritage/style/theme.dart' as Theme;
+import 'package:preservingculturalheritage/Pages/data.dart';
+
+import 'blog.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,63 +17,159 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<HistoricalArtifacts> _posts = [];
-  Future<void> _getPosts() async {
-    List<HistoricalArtifacts> posts =
-        await FirebaseHistArtServices().getHistoricalArtifacts();
-    if (mounted) {
-      setState(() {
-        _posts = posts;
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _getPosts();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [],
-      ),
-      body: buildText(),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue,
-        child: Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => UploadPage()));
-        },
+      //backgroundColor: gradientEndColor,
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [
+                  Theme.Colors.gradientStartColor,
+                  Theme.Colors.gradientEndColor
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: [0.3, 0.7])),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(32.0),
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      'Culture',
+                      style: TextStyle(
+                        //fontFamily: 'Avenir',
+                        fontSize: 44,
+                        color: const Color(0xffffffff),
+                        fontWeight: FontWeight.w900,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 450,
+                padding: const EdgeInsets.only(left: 32),
+                child: Swiper(
+                  itemCount: planets.length,
+                  itemWidth: MediaQuery.of(context).size.width - 2 * 64,
+                  layout: SwiperLayout.STACK,
+                  pagination: SwiperPagination(
+                    builder:
+                        DotSwiperPaginationBuilder(activeSize: 20, space: 8),
+                  ),
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, a, b) => DetailPage(
+                              planetInfo: planets[index],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Stack(
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              SizedBox(height: 70),
+                              Card(
+                                elevation: 8,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(32),
+                                ),
+                                color: Colors.white,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(32.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      SizedBox(height: 100),
+                                      Text(
+                                        planets[index].name,
+                                        style: TextStyle(
+                                          fontFamily: 'MontserratLight',
+                                          fontSize: 24,
+                                          color: const Color(0xff47455f),
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                      Text(
+                                        'Solar System',
+                                        style: TextStyle(
+                                          fontFamily: 'MontserratLight',
+                                          fontSize: 23,
+                                          color: Theme.Colors.primaryTextColor,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                      SizedBox(height: 32),
+                                      Row(
+                                        children: <Widget>[
+                                          Text(
+                                            'Know more',
+                                            style: TextStyle(
+                                              fontFamily: 'MontserratLight',
+                                              fontSize: 18,
+                                              color: Theme
+                                                  .Colors.secondaryTextColor,
+                                              fontWeight: FontWeight.w800,
+                                            ),
+                                            textAlign: TextAlign.left,
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward,
+                                            color:
+                                                Theme.Colors.secondaryTextColor,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Hero(
+                            tag: planets[index].position,
+                            child: Image.asset(planets[index].iconImage),
+                            //buildText(),
+                          ),
+                          Positioned(
+                            right: 24,
+                            bottom: 60,
+                            child: Text(
+                              planets[index].position.toString(),
+                              style: TextStyle(
+                                fontFamily: 'Avenir',
+                                fontSize: 200,
+                                color: Theme.Colors.primaryTextColor
+                                    .withOpacity(0.20),
+                                fontWeight: FontWeight.w900,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
-  }
-
-  ListView buildText() {
-    return ListView.builder(
-      shrinkWrap: true,
-      primary: false,
-      itemCount: _posts.length,
-      itemBuilder: (BuildContext context, int index) {
-        HistoricalArtifacts post = _posts[index];
-        return FutureBuilder(
-          future: FirebaseHistArtServices().getUsers(post.userId),
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (!snapshot.hasData) {
-              print("NoData");
-            }
-
-            return postCard(post);
-          },
-        );
-      },
-    );
-  }
-
-  postCard(HistoricalArtifacts post) {
-    return Image(image: NetworkImage(post.photoUrl));
   }
 }

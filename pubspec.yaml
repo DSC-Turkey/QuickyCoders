@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^8.11.0
+  flutter_swiper: 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -56,6 +57,21 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/img/logo.png
+    - assets/drop_down_icon.png
+    - assets/earth.png
+    - assets/jupiter.png
+    - assets/menu_icon.png
+    - assets/mercury.png
+    - assets/neptune.png
+    - assets/profile_icon.png
+    - assets/saturn.png
+    - assets/search_icon.png
+    - assets/uranus.png
+    - assets/venus.png
+  
+
+
+
      
 
   # An image asset can refer to one or more resolution-specific "variants", see
