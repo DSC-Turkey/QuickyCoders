@@ -79,16 +79,9 @@ Information on how to get started can be found at our
 [Twitter badge]: https://twitter.com/intent/follow?screen_name=flutterdev
 [layered architecture]: https://flutter.dev/docs/resources/inside-flutter
 [widget catalog]: https://flutter.dev/widgets/
-<p>
-<a href="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715433.png"><img src="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715433.png" align="left" height="400" width="500" ></a>
-  
- <a href="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715491.png"><img src="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715491.png" align="left" height="400" width="500" ></a> 
-  
-  
-  <a href="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715644.png"><img src="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715644.png" align="left" height="400" width="500" ></a>
-</p>
 
-[Reflectly hero image]: 
+
+[Reflectly hero image]: https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715433.png
 [Skia]: https://skia.org/
 [Dart platform]: https://dart.dev/
 [Dart platform diagram]: https://github.com/flutter/website/blob/master/src/images/homepage/dart-diagram-small.png
