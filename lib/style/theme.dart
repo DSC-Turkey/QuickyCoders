@@ -14,7 +14,7 @@ class Colors {
   static const Color navigationColor = Color(0xFF6751B5);
   static const Color gradientStartColor = Color(0xFFFFF176); //0xFF0050AC
   static const Color gradientEndColor = Color(0xFF795548); //0xFF9354B9
-
+  static const Color homepage = Color(0xFF845ec2);
   static const primaryGradient = const LinearGradient(
     colors: const [loginGradientStart, loginGradientEnd],
     stops: const [0.0, 1.0],

@@ -1,7 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:preservingculturalheritage/Pages/Profile.dart';
 import 'package:preservingculturalheritage/Pages/homePage.dart';
+import 'package:preservingculturalheritage/Pages/uploadPage.dart';
 import 'package:preservingculturalheritage/Services/AuthService.dart';
 import 'package:provider/provider.dart';
 
@@ -27,6 +29,8 @@ class _NavigationBarState extends State<NavigationBar> {
 
   @override
   Widget build(BuildContext context) {
+    String activeUserId =
+        Provider.of<AuthService>(context, listen: false).activeUserId;
     return Scaffold(
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
@@ -38,8 +42,10 @@ class _NavigationBarState extends State<NavigationBar> {
         controller: pageController,
         children: [
           HomePage(),
-          HomePage(),
-          ProfileApp(),
+          UploadPage(),
+          ProfileApp(
+            profilOwnerId: activeUserId,
+          ),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -49,21 +55,27 @@ class _NavigationBarState extends State<NavigationBar> {
         ),
         items: [
           Icon(
-            Icons.home,
+            FontAwesomeIcons.home,
             size: 30,
             color: Colors.grey,
           ),
           Icon(
-            Icons.search,
+            FontAwesomeIcons.photoVideo,
             size: 30,
             color: Colors.grey,
           ),
           Icon(
-            Icons.person,
+            FontAwesomeIcons.user,
             size: 30,
             color: Colors.grey,
           ),
-          IconButton(icon: Icon(Icons.exit_to_app), onPressed: _signOut)
+          IconButton(
+            icon: Icon(
+              FontAwesomeIcons.signOutAlt,
+              color: Colors.grey[600],
+            ),
+            onPressed: _signOut,
+          )
         ],
         onTap: (selectedPageNumber) {
           setState(() {

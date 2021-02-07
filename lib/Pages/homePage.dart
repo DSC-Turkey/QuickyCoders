@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
             gradient: LinearGradient(
                 colors: [
                   Theme.Colors.gradientStartColor,
-                  Theme.Colors.gradientEndColor
+                  Theme.Colors.homepage
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                         //fontFamily: 'Avenir',
                         fontSize: 44,
-                        color: const Color(0xffffffff),
+                        color: Theme.Colors.homepage,
                         fontWeight: FontWeight.w900,
                       ),
                       textAlign: TextAlign.left,

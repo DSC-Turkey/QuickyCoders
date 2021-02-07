@@ -1,9 +1,42 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:preservingculturalheritage/Models/Users.dart';
+import 'package:preservingculturalheritage/Services/FirebaseHist-ArtServices.dart';
 
-class ProfileApp extends StatelessWidget {
+class ProfileApp extends StatefulWidget {
+  final String profilOwnerId;
+
+  const ProfileApp({Key key, this.profilOwnerId}) : super(key: key);
+  @override
+  _ProfileAppState createState() => _ProfileAppState();
+}
+
+class _ProfileAppState extends State<ProfileApp> {
+  Users _user;
+  Future<Users> getUser() async {
+    Users user = await FirebaseHistArtServices().getUsers(widget.profilOwnerId);
+    setState(() {
+      _user = user;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getUser();
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (_user == null) {
+      return Center(child: CircularProgressIndicator());
+    }
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.redAccent,
+        elevation: 0.0,
+      ),
       body: Column(
         children: <Widget>[
           Container(
@@ -14,7 +47,7 @@ class ProfileApp extends StatelessWidget {
                       colors: [Colors.redAccent, Colors.pinkAccent])),
               child: Container(
                 width: double.infinity,
-                height: 350.0,
+                height: 250.0,
                 child: Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,7 +55,7 @@ class ProfileApp extends StatelessWidget {
                     children: <Widget>[
                       CircleAvatar(
                         backgroundImage: NetworkImage(
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh7xXVyTAFSKut0CuMJI3_bygPmuRzg_nJGg&usqp=CAU",
+                          _user.photoUrl,
                         ),
                         radius: 50.0,
                       ),
@@ -30,7 +63,7 @@ class ProfileApp extends StatelessWidget {
                         height: 1.0,
                       ),
                       Text(
-                        "Alice James",
+                        _user.userName,
                         style: TextStyle(
                           fontSize: 22.0,
                           color: Colors.white,
@@ -39,130 +72,18 @@ class ProfileApp extends StatelessWidget {
                       SizedBox(
                         height: 10.0,
                       ),
-                      Card(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 5.0),
-                        clipBehavior: Clip.antiAlias,
-                        color: Colors.white,
-                        elevation: 5.0,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0, vertical: 22.0),
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: Column(
-                                  children: <Widget>[
-                                    Text(
-                                      "Posts",
-                                      style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    Text(
-                                      "5200",
-                                      style: TextStyle(
-                                        fontSize: 20.0,
-                                        color: Colors.pinkAccent,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  children: <Widget>[
-                                    Text(
-                                      "Followers",
-                                      style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    Text(
-                                      "28.5K",
-                                      style: TextStyle(
-                                        fontSize: 20.0,
-                                        color: Colors.pinkAccent,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  children: <Widget>[
-                                    Text(
-                                      "Follow",
-                                      style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    Text(
-                                      "1300",
-                                      style: TextStyle(
-                                        fontSize: 20.0,
-                                        color: Colors.pinkAccent,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
                     ],
                   ),
                 ),
               )),
           Container(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Bio:",
-                    style: TextStyle(
-                        color: Colors.redAccent,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 28.0),
-                  ),
-                  SizedBox(
-                    height: 1.0,
-                  ),
-                  Text(
-                    'My name is Alice and I am  a freelance mobile app developper.\n'
-                    'if you need any mobile app for your company then contact me for more informations',
-                    style: TextStyle(
-                      fontSize: 22.0,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                      letterSpacing: 2.0,
-                    ),
-                  ),
-                ],
-              ),
+              child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Hakkında: " + _user.detail,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
             ),
-          ),
+          )),
           Container(
             width: 300.00,
             child: RaisedButton(
@@ -184,7 +105,7 @@ class ProfileApp extends StatelessWidget {
                         BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
                     alignment: Alignment.center,
                     child: Text(
-                      "Contact me",
+                      "Benimle İletişime Geç",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 15.0,

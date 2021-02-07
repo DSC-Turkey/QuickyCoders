@@ -25,7 +25,7 @@ class Users {
       userName: doc.data()['userName'],
       email: doc.data()['email'],
       photoUrl: doc.data()['fotoUrl'],
-      detail: doc.data()['detail'],
+      detail: doc.data()['hakkinda'],
     );
   }
 }
