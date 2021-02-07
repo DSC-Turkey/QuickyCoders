@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                           context,
                           PageRouteBuilder(
                             pageBuilder: (context, a, b) => DetailPage(
-                              planetInfo: planets[index],
+                              info: planets[index],
                             ),
                           ),
                         );

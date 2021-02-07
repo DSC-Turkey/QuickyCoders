@@ -1,13 +1,39 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:preservingculturalheritage/Models/Users.dart';
+import 'package:preservingculturalheritage/Models/historicalArtifacts.dart';
+import 'package:preservingculturalheritage/Pages/postDetail.dart';
+import 'package:preservingculturalheritage/Services/FirebaseHist-ArtServices.dart';
 import 'package:preservingculturalheritage/style/theme.dart' as Theme;
 import 'package:preservingculturalheritage/Pages/data.dart';
 
-class DetailPage extends StatelessWidget {
-  final PlanetInfo planetInfo;
+class DetailPage extends StatefulWidget {
+  final PlanetInfo info;
 
-  const DetailPage({Key key, this.planetInfo}) : super(key: key);
+  const DetailPage({Key key, this.info}) : super(key: key);
+  @override
+  _DetailPageState createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  @override
+  List<HistoricalArtifacts> _posts = [];
+  Future<void> _getPosts() async {
+    List<HistoricalArtifacts> posts = await FirebaseHistArtServices()
+        .getHistoricalArtifactsbyType(widget.info.name);
+    if (mounted) {
+      setState(() {
+        _posts = posts;
+      });
+    }
+  }
 
   @override
+  void initState() {
+    super.initState();
+    _getPosts();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -25,7 +51,7 @@ class DetailPage extends StatelessWidget {
                       children: <Widget>[
                         SizedBox(height: 300),
                         Text(
-                          planetInfo.name,
+                          widget.info.name,
                           style: TextStyle(
                             fontFamily: 'Avenir',
                             fontSize: 56,
@@ -47,7 +73,7 @@ class DetailPage extends StatelessWidget {
                         Divider(color: Colors.black38),
                         SizedBox(height: 32),
                         Text(
-                          planetInfo.description ?? '',
+                          widget.info.description ?? '',
                           maxLines: 5,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -79,21 +105,40 @@ class DetailPage extends StatelessWidget {
                     height: 250,
                     padding: const EdgeInsets.only(left: 32.0),
                     child: ListView.builder(
-                        itemCount: planetInfo.images.length,
+                        itemCount: _posts.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return Card(
-                            clipBehavior: Clip.antiAlias,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: AspectRatio(
-                                aspectRatio: 1,
-                                child: Image.network(
-                                  planetInfo.images[index],
-                                  fit: BoxFit.cover,
-                                )),
-                          );
+                          HistoricalArtifacts post = _posts[index];
+                          return FutureBuilder(
+                              future: FirebaseHistArtServices()
+                                  .getUsers(post.userId),
+                              builder: (context, snapshot) {
+                                Users user = snapshot.data;
+                                return Card(
+                                  clipBehavior: Clip.antiAlias,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(24),
+                                  ),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => PostDetail(
+                                                    histArt: post,
+                                                    user: user,
+                                                  )));
+                                    },
+                                    child: AspectRatio(
+                                      aspectRatio: 1,
+                                      child: Image.network(
+                                        _posts[index].photoUrl,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              });
                         }),
                   ),
                 ],
@@ -102,14 +147,14 @@ class DetailPage extends StatelessWidget {
             Positioned(
               right: -64,
               child: Hero(
-                  tag: planetInfo.position,
-                  child: Image.asset(planetInfo.iconImage)),
+                  tag: widget.info.position,
+                  child: Image.asset(widget.info.iconImage)),
             ),
             Positioned(
               top: 60,
               left: 32,
               child: Text(
-                planetInfo.position.toString(),
+                widget.info.position.toString(),
                 style: TextStyle(
                   fontFamily: 'Avenir',
                   fontSize: 247,

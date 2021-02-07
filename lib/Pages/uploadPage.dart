@@ -105,8 +105,8 @@ class _UploadPageState extends State<UploadPage> {
                 "value": "Anıtlar",
               },
               {
-                "display": "Yapı toplulukları",
-                "value": "Yapı toplulukları",
+                "display": "Yapı Toplulukları",
+                "value": "Yapı Toplulukları",
               },
               {
                 "display": "Sitler",
