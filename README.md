@@ -80,12 +80,12 @@ Information on how to get started can be found at our
 [layered architecture]: https://flutter.dev/docs/resources/inside-flutter
 [widget catalog]: https://flutter.dev/widgets/
 <p>
-<a href="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715433.png"><img src="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715433.png" align="left" height="300" width="200" ></a>
+<a href="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715433.png"><img src="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715433.png" align="left" height="400" width="500" ></a>
   
- <a href="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715491.png"><img src="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715491.png" align="left" height="300" width="200" ></a> 
+ <a href="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715491.png"><img src="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715491.png" align="left" height="400" width="500" ></a> 
   
   
-  <a href="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715644.png"><img src="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715644.png" align="left" height="300" width="200" ></a>
+  <a href="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715644.png"><img src="https://github.com/furkantoptass/flutterhackathon2021/blob/main/screen/Screenshot_1612715644.png" align="left" height="400" width="500" ></a>
 </p>
 
 [Reflectly hero image]: 
