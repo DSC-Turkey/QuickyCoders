@@ -8,7 +8,7 @@ import 'package:preservingculturalheritage/style/theme.dart' as Theme;
 import 'package:preservingculturalheritage/Pages/data.dart';
 
 class DetailPage extends StatefulWidget {
-  final PlanetInfo info;
+  final KulturelMirasInfo info;
 
   const DetailPage({Key key, this.info}) : super(key: key);
   @override
@@ -53,20 +53,10 @@ class _DetailPageState extends State<DetailPage> {
                         Text(
                           widget.info.name,
                           style: TextStyle(
-                            fontFamily: 'Avenir',
+                            fontFamily: 'MontserratLight',
                             fontSize: 56,
                             color: Theme.Colors.primaryTextColor,
                             fontWeight: FontWeight.w900,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          'Solar System',
-                          style: TextStyle(
-                            fontFamily: 'Avenir',
-                            fontSize: 31,
-                            color: Theme.Colors.primaryTextColor,
-                            fontWeight: FontWeight.w300,
                           ),
                           textAlign: TextAlign.left,
                         ),
@@ -77,7 +67,7 @@ class _DetailPageState extends State<DetailPage> {
                           maxLines: 5,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontFamily: 'Avenir',
+                            fontFamily: 'MontserratLight',
                             fontSize: 20,
                             color: Theme.Colors.contentTextColor,
                             fontWeight: FontWeight.w500,
@@ -93,7 +83,7 @@ class _DetailPageState extends State<DetailPage> {
                     child: Text(
                       'Gallery',
                       style: TextStyle(
-                        fontFamily: 'Avenir',
+                        fontFamily: 'MontserratLight',
                         fontSize: 25,
                         color: const Color(0xff47455f),
                         fontWeight: FontWeight.w300,
@@ -156,7 +146,7 @@ class _DetailPageState extends State<DetailPage> {
               child: Text(
                 widget.info.position.toString(),
                 style: TextStyle(
-                  fontFamily: 'Avenir',
+                  fontFamily: 'MontserratLight',
                   fontSize: 247,
                   color: Theme.Colors.primaryTextColor.withOpacity(0.08),
                   fontWeight: FontWeight.w900,

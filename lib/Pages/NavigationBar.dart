@@ -5,6 +5,7 @@ import 'package:preservingculturalheritage/Pages/Profile.dart';
 import 'package:preservingculturalheritage/Pages/homePage.dart';
 import 'package:preservingculturalheritage/Pages/uploadPage.dart';
 import 'package:preservingculturalheritage/Services/AuthService.dart';
+import 'package:preservingculturalheritage/style/theme.dart' as Theme;
 import 'package:provider/provider.dart';
 
 class NavigationBar extends StatefulWidget {
@@ -50,6 +51,7 @@ class _NavigationBarState extends State<NavigationBar> {
       ),
       bottomNavigationBar: CurvedNavigationBar(
         height: 48,
+        backgroundColor: Theme.Colors.homepage,
         animationDuration: Duration(
           milliseconds: 900,
         ),

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:preservingculturalheritage/Models/Users.dart';
 import 'package:preservingculturalheritage/Services/FirebaseHist-ArtServices.dart';
+import 'package:preservingculturalheritage/style/theme.dart' as Theme;
 
 class ProfileApp extends StatefulWidget {
   final String profilOwnerId;
@@ -34,17 +35,33 @@ class _ProfileAppState extends State<ProfileApp> {
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    Theme.Colors.gradientStartColor,
+                    Theme.Colors.homepage
+                  ],
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
+                  stops: [0.3, 0.7])),
+        ),
+        // backgroundColor: Colors.redAccent,
         elevation: 0.0,
       ),
       body: Column(
         children: <Widget>[
           Container(
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Colors.redAccent, Colors.pinkAccent])),
+                gradient: LinearGradient(
+                    colors: [
+                      Theme.Colors.gradientStartColor,
+                      Theme.Colors.homepage
+                    ],
+                    begin: Alignment.centerRight,
+                    end: Alignment.centerLeft,
+                    stops: [0.3, 0.7]),
+              ),
               child: Container(
                 width: double.infinity,
                 height: 250.0,
@@ -65,9 +82,10 @@ class _ProfileAppState extends State<ProfileApp> {
                       Text(
                         _user.userName,
                         style: TextStyle(
-                          fontSize: 22.0,
-                          color: Colors.white,
-                        ),
+                            fontFamily: 'MontserratLight',
+                            fontSize: 25.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700),
                       ),
                       SizedBox(
                         height: 10.0,
@@ -81,7 +99,10 @@ class _ProfileAppState extends State<ProfileApp> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               "Hakkında: " + _user.detail,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+              style: TextStyle(
+                  fontFamily: 'MontserratLight',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 19),
             ),
           )),
           Container(
@@ -95,9 +116,13 @@ class _ProfileAppState extends State<ProfileApp> {
                 child: Ink(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
+                        colors: [
+                          Theme.Colors.gradientStartColor,
+                          Theme.Colors.homepage
+                        ],
                         begin: Alignment.centerRight,
                         end: Alignment.centerLeft,
-                        colors: [Colors.redAccent, Colors.pinkAccent]),
+                        stops: [0.3, 0.7]),
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: Container(
@@ -108,8 +133,9 @@ class _ProfileAppState extends State<ProfileApp> {
                       "Benimle İletişime Geç",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w300),
+                          fontFamily: 'MontserratLight',
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w900),
                     ),
                   ),
                 )),

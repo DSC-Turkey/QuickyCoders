@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:preservingculturalheritage/Services/AuthService.dart';
 import 'package:preservingculturalheritage/Services/FirebaseHist-ArtServices.dart';
 import 'package:preservingculturalheritage/Services/FirebaseStorageService.dart';
+import 'package:preservingculturalheritage/style/theme.dart' as Theme;
+
 import 'package:provider/provider.dart';
 
 class UploadPage extends StatefulWidget {
@@ -31,7 +33,17 @@ class _UploadPageState extends State<UploadPage> {
   Widget uploadForm() {
     return new Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[100],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    Theme.Colors.gradientStartColor,
+                    Theme.Colors.homepage
+                  ],
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
+                  stops: [0.3, 0.7])),
+        ),
         title: Text(
           "Gonderi Oluştur",
           style: TextStyle(color: Colors.black),
@@ -123,7 +135,12 @@ class _UploadPageState extends State<UploadPage> {
 
   Widget uploadScreen() {
     return Container(
-      decoration: new BoxDecoration(color: Colors.orange[300]),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [Theme.Colors.gradientStartColor, Theme.Colors.homepage],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [0.3, 0.7])),
       child: IconButton(
           icon: Icon(
             Icons.file_upload,

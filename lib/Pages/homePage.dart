@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                     Text(
                       'Culture',
                       style: TextStyle(
-                        //fontFamily: 'Avenir',
+                        fontFamily: 'MontserratLight',
                         fontSize: 44,
                         color: Theme.Colors.homepage,
                         fontWeight: FontWeight.w900,
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                 height: 450,
                 padding: const EdgeInsets.only(left: 32),
                 child: Swiper(
-                  itemCount: planets.length,
+                  itemCount: miraslar.length,
                   itemWidth: MediaQuery.of(context).size.width - 2 * 64,
                   layout: SwiperLayout.STACK,
                   pagination: SwiperPagination(
@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                           context,
                           PageRouteBuilder(
                             pageBuilder: (context, a, b) => DetailPage(
-                              info: planets[index],
+                              info: miraslar[index],
                             ),
                           ),
                         );
@@ -94,22 +94,12 @@ class _HomePageState extends State<HomePage> {
                                     children: <Widget>[
                                       SizedBox(height: 100),
                                       Text(
-                                        planets[index].name,
+                                        miraslar[index].name,
                                         style: TextStyle(
                                           fontFamily: 'MontserratLight',
                                           fontSize: 24,
                                           color: const Color(0xff47455f),
                                           fontWeight: FontWeight.w900,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                      Text(
-                                        'Solar System',
-                                        style: TextStyle(
-                                          fontFamily: 'MontserratLight',
-                                          fontSize: 23,
-                                          color: Theme.Colors.primaryTextColor,
-                                          fontWeight: FontWeight.w700,
                                         ),
                                         textAlign: TextAlign.left,
                                       ),
@@ -141,17 +131,17 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                           Hero(
-                            tag: planets[index].position,
-                            child: Image.asset(planets[index].iconImage),
+                            tag: miraslar[index].position,
+                            child: Image.asset(miraslar[index].iconImage),
                             //buildText(),
                           ),
                           Positioned(
                             right: 24,
                             bottom: 60,
                             child: Text(
-                              planets[index].position.toString(),
+                              miraslar[index].position.toString(),
                               style: TextStyle(
-                                fontFamily: 'Avenir',
+                                fontFamily: 'MontserratLight',
                                 fontSize: 200,
                                 color: Theme.Colors.primaryTextColor
                                     .withOpacity(0.20),
