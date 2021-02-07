@@ -3,18 +3,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class Users {
   final String id;
-  final String kullaniciAdi;
-  final String fotourl;
+  final String userName;
+  final String photoUrl;
   final String email;
-  final String hakkinda;
+  final String detail;
 
-  Users({this.id, this.kullaniciAdi, this.fotourl, this.email, this.hakkinda});
+  Users({this.id, this.userName, this.photoUrl, this.email, this.detail});
 
   factory Users.productFromFirebase(User users) {
     return Users(
       id: users.uid,
-      kullaniciAdi: users.displayName,
-      fotourl: users.photoURL,
+      userName: users.displayName,
+      photoUrl: users.photoURL,
       email: users.email,
     );
   }
@@ -22,10 +22,10 @@ class Users {
   factory Users.createDocument(DocumentSnapshot doc) {
     return Users(
       id: doc.id,
-      kullaniciAdi: doc.data()['kullaniciAdi'],
+      userName: doc.data()['userName'],
       email: doc.data()['email'],
-      fotourl: doc.data()['fotoUrl'],
-      hakkinda: doc.data()['hakkinda'],
+      photoUrl: doc.data()['fotoUrl'],
+      detail: doc.data()['detail'],
     );
   }
 }

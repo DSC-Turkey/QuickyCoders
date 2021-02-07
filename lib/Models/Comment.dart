@@ -11,7 +11,7 @@ class Comment {
   factory Comment.createDocument(DocumentSnapshot doc) {
     return Comment(
       id: doc.id,
-      detail: doc.data()["icerik"],
+      detail: doc.data()["detail"],
       publisherId: doc.data()["publisherId"],
       createTime: doc.data()["createTime"],
     );

@@ -14,7 +14,7 @@ class FirebaseCommentService {
   }
 
   void addComment(
-      String activeUserId, HistoricalArtifacts post, String detail) {
+      {String activeUserId, HistoricalArtifacts post, String detail}) {
     _firestore
         .collection("comments")
         .doc(post.id)
