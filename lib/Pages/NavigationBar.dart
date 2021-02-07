@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:preservingculturalheritage/Pages/Profile.dart';
 import 'package:preservingculturalheritage/Pages/homePage.dart';
 import 'package:preservingculturalheritage/Services/AuthService.dart';
 import 'package:provider/provider.dart';
@@ -38,7 +39,7 @@ class _NavigationBarState extends State<NavigationBar> {
         children: [
           HomePage(),
           HomePage(),
-          HomePage(),
+          ProfileApp(),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -64,6 +65,11 @@ class _NavigationBarState extends State<NavigationBar> {
           ),
           IconButton(icon: Icon(Icons.exit_to_app), onPressed: _signOut)
         ],
+        onTap: (selectedPageNumber) {
+          setState(() {
+            pageController.jumpToPage(selectedPageNumber);
+          });
+        },
       ),
     );
   }

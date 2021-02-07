@@ -5,6 +5,7 @@ class HistoricalArtifacts {
   final String photoUrl;
   final String userId;
   final String description;
+  final String type;
   final String location;
   final Timestamp createTime;
 
@@ -13,6 +14,7 @@ class HistoricalArtifacts {
       this.userId,
       this.photoUrl,
       this.description,
+      this.type,
       this.location,
       this.createTime});
 
@@ -20,10 +22,11 @@ class HistoricalArtifacts {
     return HistoricalArtifacts(
       id: doc.id,
       userId: doc.data()["userId"],
-      photoUrl: doc.data()["photoUrl"],
+      photoUrl: doc.data()["postImageUrl"],
       description: doc.data()["description"],
+      type: doc.data()["type"],
       location: doc.data()["location"],
-      createTime: doc.data()["createTime"],
+      createTime: doc.data()["createDate"],
     );
   }
 }

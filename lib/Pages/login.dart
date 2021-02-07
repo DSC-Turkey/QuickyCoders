@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:preservingculturalheritage/Models/Users.dart';
 import 'package:preservingculturalheritage/Services/AuthService.dart';
-import 'package:preservingculturalheritage/Services/FirebaseService.dart';
+import 'package:preservingculturalheritage/Services/FirebaseUserService.dart';
 import 'package:preservingculturalheritage/style/theme.dart' as Theme;
 import 'package:preservingculturalheritage/utils/buble_login_button.dart';
 import 'package:provider/provider.dart';
